@@ -39,8 +39,8 @@ for school in schools:
 for school in schools:
     if 'Graduation rate  women (DRVGR2020)' in school and school['Graduation rate  women (DRVGR2020)'] is not None:
         if school['Graduation rate  women (DRVGR2020)'] > 90:
-            print(f"College: {school['instnm']}")
-            print(f"Graduation rate: {school['Graduation rate  women (DRVGR2020)']}%")
+            print(f"University: {school['instnm']}")
+            print(f"Graduation rate for women: {school['Graduation rate  women (DRVGR2020)']}%\n")
     
 
 
@@ -54,5 +54,5 @@ for school in schools:
     if 'Total price for in-state students living off campus (not with family)  2020-21 (DRVIC2020)' in school:
         if school['Total price for in-state students living off campus (not with family)  2020-21 (DRVIC2020)'] is not None:
             if school['Total price for in-state students living off campus (not with family)  2020-21 (DRVIC2020)'] > 60000:
-                print(f"College: {school['instnm']}")
-                print(f"Off campus cost: ${school['Total price for in-state students living off campus (not with family)  2020-21 (DRVIC2020)']}")
+                print(f"University: {school['instnm']}")
+                print(f"Total price for in-state students living off campus cost: ${school['Total price for in-state students living off campus (not with family)  2020-21 (DRVIC2020)']}\n")
