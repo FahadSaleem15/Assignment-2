@@ -1,22 +1,26 @@
-import random
-import string
+
+letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 
+ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ','.',':']
 
 
-special_characters = string.punctuation
-list_of_characters = list(special_characters)
+special_charcs = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', 
+    '[', ']', '{', '}', '\\', '|', ';', ':', '\'', '"', 'P', 'A', '<', '>', 
+    '/', '?', 'K', '~', 'Q', 'N', 'O', 'J', 'H', 'F', 'C', 'L', 'B', 
+    'Z', 'V', 'H', 'J', 'I', 'T', 'S', 'W', 'U', 'M', 'V', ' ', '.', ':']
 
-codes = {}
+
+
+
 
 
 file = open("info_security-1.txt", "r")
 reader = file.read()
 
+codes = {}
 
-while len(list_of_characters) < len(reader):
-    list_of_characters += list_of_characters
+for i in range(len(letters)):
+    codes[letters[i]] = special_charcs[i]
 
-for i in range(len(reader)):
-    codes[reader[i]] = list_of_characters[i]
 
 print(codes)
 
@@ -25,9 +29,13 @@ for letter in reader:
     new_charc += codes[letter]
 
 
-with open("encrypted.txt", 'w') as file:
-    file.write(new_charc)
+new_file = open('encrypted.txt','w')
 
-file.close()
+new_file.write(new_charc)
+
+new_file.close()
+
+
+
 
 

@@ -1,26 +1,27 @@
-import string
-
-file_alpha = open("info_security-1.txt","r")
-
-file_speccharc = open("encrypted.txt","r")
-
+special_charcs = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', 
+    '[', ']', '{', '}', '\\', '|', ';', ':', '\'', '"', 'P', 'A', '<', '>', 
+    '/', '?', 'K', '~', 'Q', 'N', 'O', 'J', 'H', 'F', 'C', 'L', 'B', 
+    'Z', 'V', 'H', 'J', 'I', 'T', 'S', 'W', 'U', 'M', 'V', ' ', '.', ':']
 
 
-alpha_reader = file_alpha.read()
-speccharc_reader = file_speccharc.read()
+letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 
+ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ','.',':']
 
+charc_file = open('encrypted.txt', 'r')
 
-char_to_special = {alpha_reader[i]: speccharc_reader[i] for i in range(len(alpha_reader))}
+charc_reader = charc_file.read()
 
-special_to_char = {v: k for k, v in char_to_special.items()}
+alph = {}
 
+for i in range(len(special_charcs)):
+    alph[special_charcs[i]] = letters[i]
 
+print(alph)
 
-new_text = ""
-for char in speccharc_reader:
-        new_text += special_to_char.get(char, char)
+updated_letters = ""
+for charc in charc_reader:
+    updated_letters += alph[charc]
 
-
-print(new_text)
+print(updated_letters)
 
 
